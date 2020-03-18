@@ -22,12 +22,16 @@ return db('schemes').join('steps', 'schemes.id', '=', 'steps.id').select('steps.
     //  values 
     //  ('bring down the government');
   return db('schemes').insert(schemeData).then(id=>{
-      return findById(id[0]);
+      return findById(id);
   });
  }
 
-//  function addStep(stepData, id){
-
+//  function addStep(stepData){
+//     // raw: insert into steps
+//     // (scheme_id, instructions, step_number)
+//     //  values 
+//     //  ('6','destabilise economy with viral pandemic','1');
+// return db('steps').insert(stepData)
 //  }
 
 //  function update(changes, id){
@@ -51,4 +55,4 @@ return db('schemes').join('steps', 'schemes.id', '=', 'steps.id').select('steps.
 //     .select('scheme_name')
 // }
 
-module.exports = { find, findById, findSteps, add };
+module.exports = { find, findById, findSteps, add, addStep };
