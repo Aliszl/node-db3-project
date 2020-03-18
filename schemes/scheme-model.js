@@ -16,9 +16,15 @@ function findSteps(id){
 return db('schemes').join('steps', 'schemes.id', '=', 'steps.id').select('steps.instructions').from('schemes')
 
 }
-//  function add(schemeData){
-
-//  }
+ function add(schemeData){
+    // raw:  insert into schemes
+    // (scheme_name)
+    //  values 
+    //  ('bring down the government');
+  return db('schemes').insert(schemeData).then(id=>{
+      return findById(id[0]);
+  });
+ }
 
 //  function addStep(stepData, id){
 
@@ -45,4 +51,4 @@ return db('schemes').join('steps', 'schemes.id', '=', 'steps.id').select('steps.
 //     .select('scheme_name')
 // }
 
-module.exports = { find, findById, findSteps };
+module.exports = { find, findById, findSteps, add };
