@@ -11,7 +11,9 @@ function findById(id) {
 }
 
 function findSteps(id){
-    
+
+    //raw SQL  SELECT steps.instructions FROM `schemes`JOIN steps on schemes.id = steps.id;
+return db('schemes').join('steps', 'schemes.id', '=', 'steps.id').select('steps.instructions').from('schemes')
 
 }
 //  function add(schemeData){
